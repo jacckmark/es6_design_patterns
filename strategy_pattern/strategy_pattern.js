@@ -2,7 +2,7 @@
 +-----------+    +Strategy       +--------------+
 |  Context  | <----------------+ |   Strategy   |
 +-----------+                    +--------------+
-                +--------------> |  alghoritm   | <--------------+
+                +--------------> |  algorithm   | <--------------+
                 |                |  blueprint   |                |
                 |                +--------------+                |
                 |                                                |
@@ -13,7 +13,7 @@
        +-----------------+      +-----------------+      +-----------------+
        |ConcreteStrategy1|      |ConcreteStrategy2|      |ConcreteStrategy3|
        +-----------------+      +-----------------+      +-----------------+
-       |    alghoritm    |      |    alghoritm    |      |    alghoritm    |
+       |    algorithm    |      |    algorithm    |      |    algorithm    |
        | implementation  |      | implementation  |      | implementation  |
        +-----------------+      +-----------------+      +-----------------+
 */
@@ -21,7 +21,7 @@
 /* 
 Strategy Pattern is best use when:
 -you need use several algorithms which have different variations (the bigger 
-    alghoritm the better)
+    algorithm the better)
 -there are conditional statements around several algorithms which are related 
     between
 -most of your classes have related behaviours
@@ -62,7 +62,7 @@ class ConcreteStrategyA extends Strategy {
         console.log("ConcreteStrategyA created");
     }
 
-    //some alghoritm that will be run if we would run ContextInterface()
+    //some algorithm that will be run if we would run ContextInterface()
     //function
     AlgorithmInterface() {
         console.log("ConcreteStrategyA algorithm");
@@ -85,7 +85,7 @@ function init_Strategy() {
     //context creation
     let contextA = new Context("A");
     let contextB = new Context("B");
-    //runninng choosen strategy alghoritms
+    //runninng choosen strategy algorithms
     contextA.ContextInterface();
     contextB.ContextInterface();
 }
