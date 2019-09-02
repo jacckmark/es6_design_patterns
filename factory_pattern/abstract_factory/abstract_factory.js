@@ -1,24 +1,27 @@
 /* 
-              +------------------+              +---------------+            +-----------------+
-              |  AbstractFactory | <----------+ |    Client     | +--------> |AbstractProductA |
-         +--> +------------------+ <---+        +---------------+        +-> +-----------------+ <-+
-         |    | createProductA() |     |                                 |                         |
-         |    | createProductB() |     |                                 +                         +
-         |    +------------------+     |
-         |                             |                         +----------------+       +---------------+
-         |                             |                         |   ProductA1    |       |   ProductA2   |
-         +                             +                         +----------------+       +---------------+
+DEFINITION
+Abstract Factory is a creational design pattern that lets you produce families 
+of related objects without specifying their concrete classes.
+
+              +------------------+             +---------------+            +-----------------+
+              |  AbstractFactory | <---------+ |    Client     | +--------> |AbstractProductA |
+         +--> +------------------+ <--+        +---------------+        +-> +-----------------+ <-+
+         |    | createProductA() |    |                                 |                         |
+         |    | createProductB() |    |                                 +                         +
+         |    +------------------+    |
+         |                            |                         +----------------+       +---------------+
+         |                            |                         |   ProductA1    |       |   ProductA2   |
+         +                            +                         +----------------+       +---------------+
 
 +------------------+        +------------------+
-| ConcreteFactory1 |        | ConcreteFactory2 |                             +-----------------+
-+------------------+        +------------------+                             |AbstractProductB |
-| createProductA() |        | createProductA() |                         +-> +-----------------+ <-+
-| createProductB() |        | createProductB() |                         |                         |
-+------------------+        +------------------+                         +                         +
-
-                                                                 +----------------+       +----------------+
-                                                                 |   ProductB1    |       |   ProductB2    |
-                                                                 +----------------+       +----------------+
+| ConcreteFactory1 |        | ConcreteFactory2 |                            +-----------------+
++------------------+        +------------------+                            |AbstractProductB |
+| createProductA() |        | createProductA() |                        +-> +-----------------+ <-+
+| createProductB() |        | createProductB() |                        |                         |
++------------------+        +------------------+                        +                         +
+                                                                +----------------+       +----------------+
+                                                                |   ProductB1    |       |   ProductB2    |
+                                                                +----------------+       +----------------+
 */
 
 //class blueprint for creating concrete factories (if we would like to create
@@ -26,14 +29,13 @@
 class AbstractFactory {
     constructor() {}
     //concrete methods for creating a concrete products (for example createCheese)
-    createProductA(product) {}
-    createProductB(product) {}
+    createProductA() {}
+    createProductB() {}
 }
 
 //one of the factories which is creating whole bunch of products (for example
 //italianPizzaIngredientsFactory), methods which are responsible for creating
-//products in abstract fabric are often implemented as factory methods (look
-//design pattern factory method)
+//products in abstract fabric are often implemented as factory methods
 class ConcreteFactory1 extends AbstractFactory {
     constructor() {
         super();
@@ -41,14 +43,14 @@ class ConcreteFactory1 extends AbstractFactory {
     }
 
     //we are filling methods provided by an abstract factory
-    createProductA(product) {
+    createProductA() {
         console.log("ConcreteFactory1 createProductA");
         //here we are defining what type of concrete product we are expecting
         //when running a createProductA with this particular type of factory
         return new ProductA1();
     }
 
-    createProductB(product) {
+    createProductB() {
         console.log("ConcreteFactory1 createProductB");
         return new ProductB1();
     }
@@ -62,12 +64,12 @@ class ConcreteFactory2 extends AbstractFactory {
         console.log("ConcreteFactory2 class created");
     }
 
-    createProductA(product) {
+    createProductA() {
         console.log("ConcreteFactory2 createProductA");
         return new ProductA2();
     }
 
-    createProductB(product) {
+    createProductB() {
         console.log("ConcreteFactory2 createProductB");
         return new ProductB2();
     }

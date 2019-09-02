@@ -1,4 +1,10 @@
-/* 
+/*
+DEFINITION
+Command is a behavioral design pattern that turns a request into a stand-alone 
+object that contains all information about the request. This transformation lets 
+you parameterize methods with different requests, delay or queue a request’s 
+execution, and support undoable operations.
+
 +---------------+          +---------------+             +---------------+
 |    Client     |          |    Invoker    |             |    Command    |
 |               |          +---------------+ <---------+ +---------------+
@@ -8,7 +14,6 @@
        |                                                         ^
        |                                                         |
        |                                                         +
-       |
        |                   +---------------+             +---------------+
        |                   |   Recevier    |             |ConcreteCommand|
        +-----------------> +---------------+ <---------+ +---------------+
@@ -43,7 +48,7 @@ class Command {
 //operations receiver (this would be a concrete recipe, with all details chef
 //needs to prepare a meal)
 class ConcreteCommand extends Command {
-    constructor(receiver, state) {
+    constructor(receiver) {
         super();
         this.receiver = receiver;
         console.log("ConcreteCommand created");
@@ -67,8 +72,7 @@ class Receiver {
     }
 }
 
-//here we are creating concretecommand and assigning a reciver to it (this would
-//be a klient of a restaurant)
+//here we are creating concrete command and assigning a reciver to it
 function init_Command() {
     let invoker = new Invoker();
     let receiver = new Receiver();

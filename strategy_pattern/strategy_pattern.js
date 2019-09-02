@@ -1,4 +1,9 @@
 /* 
+DEFINITION
+Strategy is a behavioral design pattern that lets you define a family of 
+algorithms, put each of them into a separate class, and make their objects 
+interchangeable.
+
 +-----------+    +Strategy       +--------------+
 |  Context  | <----------------+ |   Strategy   |
 +-----------+                    +--------------+
@@ -17,15 +22,6 @@
        | implementation  |      | implementation  |      | implementation  |
        +-----------------+      +-----------------+      +-----------------+
 */
-
-/* 
-Strategy Pattern is best use when:
--you need use several algorithms which have different variations (the bigger 
-    algorithm the better)
--there are conditional statements around several algorithms which are related 
-    between
--most of your classes have related behaviours
- */
 
 //this class is deciding what type of strategy (concrete strategy) we should
 //execute
