@@ -1,4 +1,8 @@
-/* 
+/*
+DEFINITION
+State is a behavioral design pattern that lets an object alter its behavior when 
+its internal state changes. It appears as if the object changed its class.
+
 +-----------+    +State          +--------------+
 |  Context  | <----------------+ |    State     |
 +-----------+                    +--------------+
@@ -38,7 +42,7 @@ class Context {
     }
 
     //running one of the concrete state method (all concrete methods have
-    //the handle methods but the implementation will differ acros concrete
+    //the handle methods but the implementation will differ across concrete
     //states classes)
     Request1() {
         this.state.Handle1(this);

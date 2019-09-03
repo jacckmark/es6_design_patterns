@@ -1,4 +1,9 @@
-/* 
+/*
+DEFINITION
+Composite is a structural design pattern that lets you compose objects into tree
+structures and then work with these structures as if they were individual 
+objects.
+
 +----------+             +-------------------+
 |  Client  | +---------> |     Component     |
 +----------+             +-------------------+
@@ -26,7 +31,6 @@
 //and also for classes that are simple (regular leafs without children)
 class Component {
     constructor() {}
-
     //all required operations for leafs and composites (if the operation should
     //not work for example we cannot add to a leaf because it is not a list, we
     //are just ignoring implementation and leave it empty)
